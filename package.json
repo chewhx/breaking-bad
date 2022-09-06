@@ -1,0 +1,32 @@
+{
+	"name": "breaking-bad",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"scripts": {
+		"migrate-up": "knex migrate:up",
+		"migrate-down": "knex migrate:down",
+		"seed-run": "knex seed:run",
+		"seed-make": "knex seed:make"
+	},
+	"keywords": [],
+	"author": "Chew Han Xiang <hello@chewhx.com>",
+	"license": "ISC",
+	"dependencies": {
+		"jsdom": "^20.0.0",
+		"knex": "^2.3.0",
+		"mysql2": "^2.3.3"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^9.0.13",
+		"@types/jsdom": "^20.0.0",
+		"@types/node": "^18.7.15",
+		"@typescript-eslint/eslint-plugin": "^5.36.2",
+		"@typescript-eslint/parser": "^5.36.2",
+		"dotenv": "^16.0.2",
+		"eslint": "^8.23.0",
+		"fs-extra": "^10.1.0",
+		"tsup": "^6.2.3",
+		"typescript": "^4.8.2"
+	}
+}
