@@ -1,5 +1,7 @@
 const characters = 'characters';
 const episodes = 'episodes';
+const deaths = 'deaths';
+const quotes = 'quotes';
 
 /**
  * @param { import("knex").Knex } knex
@@ -10,15 +12,14 @@ exports.up = function (knex) {
 		.createTable(characters, (table) => {
 			table.increments('id');
 			table.string('name', 255);
-			table.string('birthdate', 255);
-			table.json('occupation');
-			table.string('image_url', 2047);
-			table.string('status', 255);
-			table.string('nickname', 255);
-			table.json('appearance');
 			table.string('portrayed', 255);
-			table.string('category', 255);
-			table.json('better_call_saul_appearance');
+			table.string('image_url', 2047);
+			table.string('full_name', 255);
+			table.string('birth_date', 255);
+			table.json('occupation');
+			table.string('episodes_count', 255);
+			table.string('series', 255);
+			table.json('appearances');
 		})
 		.createTable(episodes, (table) => {
 			table.increments('id');
@@ -29,6 +30,21 @@ exports.up = function (knex) {
 			table.json('characters', 255);
 			table.string('episode', 255);
 			table.string('series', 255);
+		})
+		.createTable(deaths, (table) => {
+			table.increments('id');
+			table.string('death', 255);
+			table.string('cause', 255);
+			table.string('responsible', 255);
+			table.string('last_words', 255);
+			table.string('season', 255);
+			table.string('series', 255);
+		})
+		.createTable(quotes, (table) => {
+			table.increments('id');
+			table.text('quote');
+			table.string('author', 255);
+			table.string('series', 255);
 		});
 };
 
@@ -37,5 +53,9 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-	return knex.schema.dropTable(characters).dropTable(episodes);
+	return knex.schema
+		.dropTable(characters)
+		.dropTable(episodes)
+		.dropTable(quotes)
+		.dropTable(deaths);
 };

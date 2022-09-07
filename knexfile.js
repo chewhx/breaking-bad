@@ -2,10 +2,10 @@
 require('dotenv').config();
 
 const database = process.env.DATABASE || '';
-const user = process.env.USER || '';
-const password = process.env.PASSWORD || '';
-const host = process.env.HOST || '';
-const port = Number(process.env.PORT) || 3306;
+const user = process.env.DBUSER || '';
+const password = process.env.DBPASSWORD || '';
+const host = process.env.DBHOST || '';
+const port = Number(process.env.DBPORT) || 3306;
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
