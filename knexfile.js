@@ -1,24 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-require('dotenv').config();
-
-const database = process.env.DATABASE || '';
-const user = process.env.DBUSER || '';
-const password = process.env.DBPASSWORD || '';
-const host = process.env.DBHOST || '';
-const port = Number(process.env.DBPORT) || 3306;
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
 	development: {
-		client: 'mysql2',
+		client: 'better-sqlite3',
 		connection: {
-			database,
-			user,
-			password,
-			host,
-			port,
+			filename: './db.sqlite',
 		},
 		migrations: {
 			tableName: 'migrations',
@@ -29,18 +18,16 @@ module.exports = {
 		},
 	},
 	production: {
-		client: 'postgresql',
+		client: 'better-sqlite3',
 		connection: {
-			database: 'my_db',
-			user: 'username',
-			password: 'password',
-		},
-		pool: {
-			min: 2,
-			max: 10,
+			filename: './db.sqlite',
 		},
 		migrations: {
-			tableName: 'knex_migrations',
+			tableName: 'migrations',
+			directory: 'migrations',
+		},
+		seeds: {
+			directory: '_data/seeds',
 		},
 	},
 };
