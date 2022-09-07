@@ -13,7 +13,6 @@
 		"dev-watch": "tsc --watch",
 		"dev-server": "nodemon src/index.js",
 		"dev": "run-p migrate-latest dev-*",
-		"start-build": "npm run build",
 		"start-server": "node dist/index.js",
 		"start": "run-s start-*",
 		"build": "tsc"

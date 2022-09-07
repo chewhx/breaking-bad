@@ -6,7 +6,7 @@ import { episodesController } from './apis/episodes/episodes.controller';
 import { errorHandler } from './middlewares/errorHandler';
 
 const app: Express = express();
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 
 app.use(morgan('dev'));
 app.use(cors());
